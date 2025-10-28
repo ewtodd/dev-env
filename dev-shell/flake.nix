@@ -25,10 +25,6 @@
                 h5py
               ]))
           ];
-
-          shellHook = ''
-            echo "Development shell flake template!"
-          '';
         };
       });
 }
