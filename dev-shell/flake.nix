@@ -27,7 +27,6 @@
             export LD_LIBRARY_PATH="$PWD/lib:$LD_LIBRARY_PATH"
 
             echo "C++ stdlib: $STDLIB_PATH"
-            echo "LSP should now work correctly"
           '';
         };
       });
