@@ -24,7 +24,7 @@
           ];
           buildInputs = with pkgs; [
             root
-            zsh
+            bash
             gnumake
             (python3.withPackages (
               python-pkgs: with python-pkgs; [
@@ -35,7 +35,7 @@
             ))
           ];
           shellHook = ''
-            export SHELL="${pkgs.zsh}/bin/zsh"
+            export SHELL="${pkgs.bash}/bin/bash"
             echo "ROOT version: $(root-config --version)"
             STDLIB_PATH="${pkgs.stdenv.cc.cc}/include/c++/${pkgs.stdenv.cc.cc.version}"
             STDLIB_MACHINE_PATH="$STDLIB_PATH/x86_64-unknown-linux-gnu"
@@ -45,7 +45,6 @@
             export ROOT_INCLUDE_PATH="$PWD/include''${ROOT_INCLUDE_PATH:+:$ROOT_INCLUDE_PATH}"
             # Local lib first means linker will use it preferentially
             export LD_LIBRARY_PATH="$PWD/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
-            exec ${pkgs.zsh}/bin/zsh
           '';
         };
       }
